@@ -2,9 +2,11 @@
 
 import { ThemeProvider, useTheme } from 'next-themes'
 import { Toaster } from '@/components/ui/sonner'
+import { ConvexClientProvider } from './ConvexClientProvider'
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
+    <ConvexClientProvider>
     <ThemeProvider
       enableSystem
       attribute='class'
@@ -14,6 +16,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       {children}
       <ToasterProvider />
     </ThemeProvider>
+    </ConvexClientProvider>
+
   )
 }
 
